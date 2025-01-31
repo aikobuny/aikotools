@@ -1,12 +1,13 @@
+info = {
+    'name': 'Ryujin Situp',
+    'version': 'v1.0.1'
+}
+
 import pygetwindow as gw
 import pyautogui
 import time
 import keyboard
-import threading
-import win32api
-import win32con
 import debug
-import balloontip
 
 window = gw.getWindowsWithTitle("Roblox")
 try:
@@ -17,6 +18,8 @@ except:
         print(f"\rRoblox is not detected! Closing in {3-i} seconds...", end='')
         time.sleep(1)
     exit()
+
+print(f'{info["name"]} {info["version"]}')
 
 letters = "ACEQWXZ"
 
