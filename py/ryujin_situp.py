@@ -19,7 +19,7 @@ except:
         time.sleep(1)
     exit()
 
-print(f'{info["name"]} {info["version"]}')
+print(f'{info["name"]} {info["version"]}\n')
 
 letters = "ACEQWXZ"
 
