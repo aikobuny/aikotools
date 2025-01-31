@@ -23,8 +23,13 @@ print(f'{info["name"]} {info["version"]}\n')
 
 letters = "ACEQWXZ"
 
+eat_interval = 500
+
 window.activate()
+time.sleep(1)
+keyboard.press_and_release('1')
 while not keyboard.is_pressed('delete'):
+    eat_interval -= 1
     left, top = window.left, window.top
     width, height = window.width, window.height
     pyautogui.click(int(left+(width/2)), int(top+(height/2)))
@@ -33,12 +38,18 @@ while not keyboard.is_pressed('delete'):
         try:
             location = pyautogui.locateOnScreen(key, confidence=.8)
             if location is not None:
-                keyboard.press(i)
-                time.sleep(.1)
-                keyboard.release(i)
+                keyboard.press_and_release(i)
                 print(f'Pressed {i}')
                 break
             else:
                 print("Err")
         except: pass
+    if eat_interval == 0:
+        # do eating here
+        keyboard.press_and_release('2')
+        time.sleep(.1)
+        pyautogui.click(int(left+(width/2)), int(top+(height/2)))
+        time.sleep(.1)
+        keyboard.press_and_release('1')
+        eat_interval = 500
     time.sleep(.5)
