@@ -1,6 +1,6 @@
 info = {
     'name': 'Ryujin Situp',
-    'version': 'v1.0.1'
+    'version': 'v1.0.2'
 }
 
 import pygetwindow as gw
@@ -44,12 +44,12 @@ while not keyboard.is_pressed('delete'):
             else:
                 print("Err")
         except: pass
-    if eat_interval == 0:
+    if eat_interval <= 0:
         # do eating here
         keyboard.press_and_release('2')
-        time.sleep(.1)
+        time.sleep(.5)
         pyautogui.click(int(left+(width/2)), int(top+(height/2)))
-        time.sleep(.1)
+        time.sleep(.5)
         keyboard.press_and_release('1')
         eat_interval = 500
     time.sleep(.5)
